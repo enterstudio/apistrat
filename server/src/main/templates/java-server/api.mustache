@@ -1,0 +1,110 @@
+package {{package}};
+
+import com.wordnik.swagger.annotations.*;
+
+{{#imports}}import {{import}};
+{{/imports}}
+
+import java.util.List;
+import {{package}}.NotFoundException;
+
+import javax.ws.rs.core.Response;
+import javax.ws.rs.*;
+
+@Path("/{{baseName}}")
+@Api(value = "/{{baseName}}", description = "the {{baseName}} API")
+@Produces({"application/json"})
+public class {{className}} {
+  {{#operations}}
+  {{#operation}}
+  @{{httpMethod}}
+  @Path("{{path}}")
+  @ApiOperation(value = "{{{summary}}}", notes = "{{{notes}}}", response = {{{returnType}}}.class)
+  @ApiResponses(value = { {{#errorList}} @ApiResponse(code = {{{code}}}, message = "{{{reason}}}"){{#hasMore}},{{/hasMore}}
+  {{/errorList}} 
+      })
+     
+  public Response {{nickname}}(
+    {{#allParams}}
+    {{#queryParameter}}
+    @ApiParam(value = "{{{description}}}"
+    {{#required}},required=true{{newline}}{{/required}}
+    {{#allowableValues}}, allowableValues="{{{allowableValues}}}"{{newline}}{{/allowableValues}}
+    {{#defaultValue}}, defaultValue="{{{defaultValue}}}"{{newline}}{{/defaultValue}}
+
+    )@QueryParam("{{paramName}}"){{newline}} {{{dataType}}} {{paramName}}
+    {{/queryParameter}}
+
+    {{#pathParameter}}
+    @ApiParam(value = "{{{description}}}"
+    {{#required}},required=true{{newline}}{{/required}}
+    {{#allowableValues}}, allowableValues="{{{allowableValues}}}"{{newline}}{{/allowableValues}}
+    {{#defaultValue}}, defaultValue="{{{defaultValue}}}"{{newline}}{{/defaultValue}}
+
+    )@PathParam("{{paramName}}"){{newline}} {{{dataType}}} {{paramName}}
+    {{/pathParameter}}
+
+    {{#headerParameter}}
+    @ApiParam(value = "{{{description}}}"
+    {{#required}},required=true{{newline}}{{/required}}
+    {{#allowableValues}}, allowableValues="{{{allowableValues}}}"{{newline}}{{/allowableValues}}
+    {{#defaultValue}}, defaultValue="{{{defaultValue}}}"{{newline}}{{/defaultValue}}
+
+    )@HeaderParam("{{paramName}}"){{newline}} {{{dataType}}} {{paramName}}
+    {{/headerParameter}}
+
+    {{#bodyParameter}}
+    @ApiParam(value = "{{{description}}}"
+    {{#required}},required=true{{newline}}{{/required}}
+    {{#allowableValues}}, allowableValues="{{{allowableValues}}}"{{newline}}{{/allowableValues}}
+    {{#defaultValue}}, defaultValue="{{{defaultValue}}}"{{newline}}{{/defaultValue}}
+
+    ) {{{dataType}}} {{paramName}}
+    {{/bodyParameter}}
+
+
+    {{#hasMore}},{{/hasMore}}
+    {{/allParams}}
+
+  )
+      throws NotFoundException {
+    {{#allParams}}
+    // throw 400 error on any null, required values
+    {{#queryParameter}}
+    {{#required}}
+    if({{paramName}} == null) {
+      return Response.status(400).entity(new ApiResponseMessage(ApiResponseMessage.ERROR, "{{paramName}} is a required parameter")).build();
+    }
+    {{/required}}
+    {{/queryParameter}}
+    {{#pathParameter}}
+    {{#required}}
+    if({{paramName}} == null) {
+      return Response.status(400).entity(new ApiResponseMessage(ApiResponseMessage.ERROR, "{{paramName}} is a required parameter")).build();
+    }
+    {{/required}}
+    {{/pathParameter}}
+    {{#headerParameter}}
+    {{#required}}
+    if({{paramName}} == null) {
+      return Response.status(400).entity(new ApiResponseMessage(ApiResponseMessage.ERROR, "{{paramName}} is a required parameter")).build();
+    }
+    {{/required}}
+    {{/headerParameter}}
+    {{#bodyParameter}}
+    {{#required}}
+    if({{paramName}} == null) {
+      return Response.status(400).entity(new ApiResponseMessage(ApiResponseMessage.ERROR, "{{paramName}} is a required parameter")).build();
+    }
+    {{/required}}
+    {{/bodyParameter}}
+    {{/allParams}}
+
+    // do some magic!
+    {{!>serviceCall}}
+    {{>stubResponse}}
+  }
+
+  {{/operation}}
+  {{/operations}}
+}

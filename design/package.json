@@ -1,0 +1,18 @@
+{
+  "name": "swagger-staic-sample",
+  "version": "1.0.0",
+  "author": {
+    "name": "Tony Tam",
+    "email": "fehguy@gmail.com",
+    "url": "http://developer.wordnik.com"
+  },
+  "main": "static-server.js",
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "dependencies": {
+    "connect": ">= 1.8.x",
+    "express": "3.x"
+  },
+  "license": "apache 2.0"
+}

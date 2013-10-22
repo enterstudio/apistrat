@@ -1,0 +1,22 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "apis": [
+    {
+      "path": "http://localhost:8000/docs/events.json",
+      "description": "All events"
+    },
+    {
+      "path": "http://localhost:8000/docs/people.json",
+      "description": "All people"
+    }
+  ],
+  "info": {
+    "title": "Swagger Sample App",
+    "description": "This is a sample Swagger app.  You can find out more about Swagger \n    at <a href=\"http://swagger.wordnik.com\">http://swagger.wordnik.com</a> or on irc.freenode.net, #swagger.  For this sample,\n    you can use the api key \"special-key\" to test the authorization filters",
+    "termsOfServiceUrl": "http://helloreverb.com/terms/",
+    "contact": "apiteam@wordnik.com",
+    "license": "Apache 2.0",
+    "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }
+}
