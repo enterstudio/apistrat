@@ -70,10 +70,9 @@
     </plugins>
   </build>
   <repositories>
-    <!-- See note #5 -->
     <repository>
-      <id>sonatype-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <id>sonatype-releases</id>
+      <url>https://oss.sonatype.org/content/repositories/releases</url>
     </repository>
   </repositories>
   <dependencies>
@@ -91,7 +90,7 @@
     </dependency>
   </dependencies>
   <properties>
-    <codegen-version>2.0.11-SNAPSHOT</codegen-version>
+    <codegen-version>2.0.11</codegen-version>
     <scala-version>2.9.1</scala-version>
     <junit-version>4.8.1</junit-version>
     <maven-plugin-version>3.1.0</maven-plugin-version>
