@@ -11,8 +11,9 @@ swagger.setAppHandler(app);
 {{#apis}}
 var {{name}}Api = require("./apis/{{className}}.js");
 {{/apis}}
+var m = require("./models.js");
 
-swagger.addModels(models)
+swagger.addModels(m.models)
   {{#apis}}
   {{#operations}}
   {{#operation}}.add{{method}}({{name}}Api.{{nickname}}){{/operation}}{{newline}}

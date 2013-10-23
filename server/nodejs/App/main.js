@@ -10,7 +10,9 @@ swagger.setAppHandler(app);
 
 var eventsApi = require("./apis/EventsApi.js");
 var peopleApi = require("./apis/PeopleApi.js");
-swagger.addModels(models)
+var m = require("./models.js");
+
+swagger.addModels(m.models)
   .addPOST(eventsApi.addEvent)
   .addGET(eventsApi.findEventById)
   .addDELETE(eventsApi.deleteEvent)
