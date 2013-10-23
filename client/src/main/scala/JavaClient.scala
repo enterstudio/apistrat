@@ -31,10 +31,10 @@ object JavaClient extends BasicJavaGenerator {
   override def invokerPackage = Some("com.wordnik.client")
 
   // package for models
-  override def modelPackage = Some("com.wordnik.petstore.model")
+  override def modelPackage = Some("com.wordnik.client.model")
 
   // package for api classes
-  override def apiPackage = Some("com.wordnik.petstore.api")
+  override def apiPackage = Some("com.wordnik.client.api")
 
   additionalParams ++= Map(
     "artifactId" -> "swagger-client", 

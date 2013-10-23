@@ -25,7 +25,7 @@ object ObjcClient extends BasicObjcGenerator {
   // where to write generated code
   override def destinationDir = outputFolder + java.io.File.separator + "Classes"
 
-  additionalParams ++= Map("projectName" -> "SampleProject")
+  additionalParams ++= Map("projectName" -> "Sample")
 
   // supporting classes
   override def supportingFiles =
