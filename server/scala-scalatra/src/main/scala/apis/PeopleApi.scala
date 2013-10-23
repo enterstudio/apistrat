@@ -33,7 +33,7 @@ class PeopleApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   get("/:personId",operation(findPersonByIdOperation)) {
     val personId: Long = params.getAs[Long]("personId").getOrElse(halt(400))
-ApiResponse(200, "you called PeopleApiService.findPersonById(personId)")
+    ApiResponse(200, "you called PeopleApiService.findPersonById(personId)")
     
   }
 

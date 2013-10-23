@@ -35,7 +35,7 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
   post("/",operation(addEventOperation)) {
     val body = parsedBody.extract[Event]
     
-ApiResponse(200, "you called EventsApiService.addEvent(body)")
+    ApiResponse(200, "you called EventsApiService.addEvent(body)")
     
   }
 
@@ -49,7 +49,7 @@ ApiResponse(200, "you called EventsApiService.addEvent(body)")
 
   get("/:eventId",operation(findEventByIdOperation)) {
     val eventId: Long = params.getAs[Long]("eventId").getOrElse(halt(400))
-ApiResponse(200, "you called EventsApiService.findEventById(eventId)")
+    ApiResponse(200, "you called EventsApiService.findEventById(eventId)")
     
   }
 
@@ -63,7 +63,7 @@ ApiResponse(200, "you called EventsApiService.findEventById(eventId)")
 
   delete("/:eventId",operation(deleteEventOperation)) {
     val eventId: Long = params.getAs[Long]("eventId").getOrElse(halt(400))
-ApiResponse(200, "you called EventsApiService.deleteEvent(eventId)")
+    ApiResponse(200, "you called EventsApiService.deleteEvent(eventId)")
     
   }
 
@@ -77,7 +77,7 @@ ApiResponse(200, "you called EventsApiService.deleteEvent(eventId)")
 
   get("/:eventId/status",operation(getEventStatusOperation)) {
     val eventId: Long = params.getAs[Long]("eventId").getOrElse(halt(400))
-ApiResponse(200, "you called EventsApiService.getEventStatus(eventId)")
+    ApiResponse(200, "you called EventsApiService.getEventStatus(eventId)")
     
   }
 
