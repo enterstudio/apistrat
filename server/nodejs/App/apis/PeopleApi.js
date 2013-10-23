@@ -22,7 +22,7 @@ exports.findPersonById = {
     "notes" : "",
     "summary" : "looks up a person by ID",
     "httpMethod": "GET",
-    "params" : [].concat([params.path("personId", "ID of person to look up")]).concat([]).concat([]),
+    "params" : [].concat([params.path("personId", "ID of person to look up", "long", null, true)]).concat([]).concat([]),
     "responseClass" : "Person",
     "errorResponses" : [errors.invalid('id'), errors.notFound('Person')],
     "nickname" : "findPersonById"

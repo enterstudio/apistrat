@@ -22,7 +22,7 @@ exports.addEvent = {
     "notes" : "",
     "summary" : "adds a new event",
     "httpMethod": "POST",
-    "params" : [].concat([]).concat([]).concat([params.body("body", "Event", "event to add", true)
+    "params" : [].concat([]).concat([]).concat([params.body("body", "event to add", "Event", true)
     ]),
     "responseClass" : "Event",
     "errorResponses" : [errors.invalid('id'), errors.notFound('Event')],
@@ -42,7 +42,7 @@ exports.findEventById = {
     "notes" : "",
     "summary" : "looks up an event by ID",
     "httpMethod": "GET",
-    "params" : [].concat([params.path("eventId", "ID of event to look up")]).concat([]).concat([]),
+    "params" : [].concat([params.path("eventId", "ID of event to look up", "long", null, true)]).concat([]).concat([]),
     "responseClass" : "Event",
     "errorResponses" : [errors.invalid('id'), errors.notFound('Event')],
     "nickname" : "findEventById"
@@ -61,7 +61,7 @@ exports.deleteEvent = {
     "notes" : "",
     "summary" : "Removes an event",
     "httpMethod": "DELETE",
-    "params" : [].concat([params.path("eventId", "ID of event to look delete")]).concat([]).concat([]),
+    "params" : [].concat([params.path("eventId", "ID of event to look delete", "long", null, true)]).concat([]).concat([]),
     "responseClass" : "Event",
     "errorResponses" : [errors.invalid('id'), errors.notFound('Event')],
     "nickname" : "deleteEvent"
@@ -80,7 +80,7 @@ exports.getEventStatus = {
     "notes" : "",
     "summary" : "gets the attendee status of the event",
     "httpMethod": "GET",
-    "params" : [].concat([params.path("eventId", "ID of event to get status on")]).concat([]).concat([]),
+    "params" : [].concat([params.path("eventId", "ID of event to get status on", "long", null, true)]).concat([]).concat([]),
     "responseClass" : "EventStatus",
     "errorResponses" : [errors.invalid('id'), errors.notFound('EventStatus')],
     "nickname" : "getEventStatus"
