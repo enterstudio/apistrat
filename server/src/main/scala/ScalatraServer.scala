@@ -49,6 +49,7 @@ object ScalatraServer extends BasicScalaGenerator {
 
   // supporting classes
   override def supportingFiles = List(
+    ("ApiResponse.scala", destinationDir + "/models", "ApiResponse.scala"),
     ("README.mustache", outputFolder, "README.md"),
     ("build.mustache", outputFolder, "build.sbt"),
     ("web.xml", outputFolder + "/src/main/webapp/WEB-INF", "web.xml"),

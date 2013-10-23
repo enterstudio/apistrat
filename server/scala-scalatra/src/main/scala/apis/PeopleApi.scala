@@ -1,6 +1,8 @@
 package apis
 
 import models.Person
+import models.ApiResponse
+
 import org.scalatra.{ TypedParamSupport, ScalatraServlet }
 import org.scalatra.swagger._
 import org.json4s._
@@ -30,8 +32,9 @@ class PeopleApi (implicit val swagger: Swagger) extends ScalatraServlet
   )
 
   get("/:personId",operation(findPersonByIdOperation)) {
-    val personId = params.getOrElse("personId", halt(400))
-    println("personId: " + personId)
+    val personId: Long = params.getAs[Long]("personId").getOrElse(halt(400))
+ApiResponse(200, "you called PeopleApiService.findPersonById(personId)")
+    
   }
 
 }

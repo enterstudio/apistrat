@@ -2,6 +2,8 @@ package apis
 
 import models.Event
 import models.EventStatus
+import models.ApiResponse
+
 import org.scalatra.{ TypedParamSupport, ScalatraServlet }
 import org.scalatra.swagger._
 import org.json4s._
@@ -32,7 +34,9 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
 
   post("/",operation(addEventOperation)) {
     val body = parsedBody.extract[Event]
-    println("body: " + body)
+    
+ApiResponse(200, "you called EventsApiService.addEvent(body)")
+    
   }
 
 
@@ -44,8 +48,9 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
   )
 
   get("/:eventId",operation(findEventByIdOperation)) {
-    val eventId = params.getOrElse("eventId", halt(400))
-    println("eventId: " + eventId)
+    val eventId: Long = params.getAs[Long]("eventId").getOrElse(halt(400))
+ApiResponse(200, "you called EventsApiService.findEventById(eventId)")
+    
   }
 
 
@@ -57,8 +62,9 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
   )
 
   delete("/:eventId",operation(deleteEventOperation)) {
-    val eventId = params.getOrElse("eventId", halt(400))
-    println("eventId: " + eventId)
+    val eventId: Long = params.getAs[Long]("eventId").getOrElse(halt(400))
+ApiResponse(200, "you called EventsApiService.deleteEvent(eventId)")
+    
   }
 
 
@@ -70,8 +76,9 @@ class EventsApi (implicit val swagger: Swagger) extends ScalatraServlet
   )
 
   get("/:eventId/status",operation(getEventStatusOperation)) {
-    val eventId = params.getOrElse("eventId", halt(400))
-    println("eventId: " + eventId)
+    val eventId: Long = params.getAs[Long]("eventId").getOrElse(halt(400))
+ApiResponse(200, "you called EventsApiService.getEventStatus(eventId)")
+    
   }
 
 }
