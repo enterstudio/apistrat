@@ -1,8 +1,8 @@
-package com.wordnik.petstore.api;
+package com.wordnik.client.api;
 
 import com.wordnik.client.ApiException;
 import com.wordnik.client.ApiInvoker;
-import com.wordnik.petstore.model.Person;
+import com.wordnik.client.model.Person;
 import java.util.*;
 
 public class PeopleApi {

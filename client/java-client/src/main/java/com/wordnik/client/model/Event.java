@@ -1,4 +1,4 @@
-package com.wordnik.petstore.model;
+package com.wordnik.client.model;
 
 import java.util.Date;
 public class Event {

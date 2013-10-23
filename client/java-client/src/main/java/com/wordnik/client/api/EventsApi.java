@@ -1,9 +1,9 @@
-package com.wordnik.petstore.api;
+package com.wordnik.client.api;
 
 import com.wordnik.client.ApiException;
 import com.wordnik.client.ApiInvoker;
-import com.wordnik.petstore.model.Event;
-import com.wordnik.petstore.model.EventStatus;
+import com.wordnik.client.model.Event;
+import com.wordnik.client.model.EventStatus;
 import java.util.*;
 
 public class EventsApi {

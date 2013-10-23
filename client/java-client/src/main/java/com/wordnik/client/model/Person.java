@@ -1,4 +1,4 @@
-package com.wordnik.petstore.model;
+package com.wordnik.client.model;
 
 public class Person {
   /* Unique identifier for the person */

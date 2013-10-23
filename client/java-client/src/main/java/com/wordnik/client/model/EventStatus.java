@@ -1,4 +1,4 @@
-package com.wordnik.petstore.model;
+package com.wordnik.client.model;
 
 public class EventStatus {
   /* Number of people confirmed to attend */
