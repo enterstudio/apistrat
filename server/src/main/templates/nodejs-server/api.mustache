@@ -27,11 +27,11 @@ exports.{{nickname}} = {
     "params" : [{{#queryParams}}
       params.query("{{paramName}}", "{{description}}", "{{swaggerDataType}}", {{required}}, {{allowMultiple}}, "{{{allowableValues}}}"{{#defaultValue}}, {{{defaultValue}}}{{/defaultValue}}){{#hasMore}},{{/hasMore}}
     {{/queryParams}}].concat([{{#pathParams}}
-      params.path("{{paramName}}", "{{description}}"){{#hasMore}},{{/hasMore}}
+      params.path("{{paramName}}", "{{description}}", "{{swaggerDataType}}", null, true){{#hasMore}},{{/hasMore}}
     {{/pathParams}}]).concat([{{#headerParams}}
       params.header("{{paramName}}", "{{description}}"){{#hasMore}},{{/hasMore}}
     {{/headerParams}}]).concat([{{#bodyParams}}
-      params.body("body", "{{swaggerDataType}}", "{{description}}", {{required}})
+      params.body("body", "{{description}}", "{{swaggerDataType}}", {{required}})
     {{/bodyParams}}]),
     "responseClass" : "{{returnType}}",
     "errorResponses" : [errors.invalid('id'), errors.notFound('{{returnType}}')],
